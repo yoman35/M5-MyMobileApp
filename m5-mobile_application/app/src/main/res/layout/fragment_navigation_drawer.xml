@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="yb.m5_mobile_application.navigationDrawer.NavigationDrawerFragment"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="24dp"
+        android:background="?attr/colorPrimaryDark"/>
+
+    <include layout="@layout/menu_separator" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/nd_menu_list_head"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <include layout="@layout/menu_separator" />
+
+    <include layout="@layout/menu_separator" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/nd_menu_list_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
