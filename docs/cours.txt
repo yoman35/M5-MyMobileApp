@@ -1,0 +1,19 @@
+publicité dans le mobile
+------------------------
+
+mixpanel.com
+# Funel Analysis - tracé de l'user dans l'app
+# A/B testing (2 versions 2 panel d'utilisateurs et on voit qui aime)
+  - critères: tout ce qui est visible + UX
+
+fabric.io (ancien crashlytics)
+# analyse de crash
+
+flurry.com
+# voir graphiquement où vont les utilisateurs sur l'app
+
+google analytics
+
+Souvent possible de suivre les performance
+
+Toujours vérifier l'utilisation de la batterie (wake-up on screen)

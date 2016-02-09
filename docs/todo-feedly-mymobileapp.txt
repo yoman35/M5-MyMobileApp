@@ -1,0 +1,56 @@
+FEEDLY-LIKE APPLICATION
+For module M5 - Mobile application
+
+AUTHOR
+------
+Yoann Bourgault
+
+PLATEFORM
+---------
+Android (API >= 15 [Ice Cream Sandwich v4.0.3] <= 23 [Lollipop v6.0])
+Gradle (buildToolsVersion 23.0.2)
+Java Development Kit (JDK) 7
+Java Runtime Environment (JRE) 1.8.0 
+Android Studio 1.5.1
+Test environment Junit 4.12
+
+LIBRARYS
+--------
+com.android.support:appcompat-v7:23.1.1				(ANDROID SDK)
+com.android.support:support-v4:23.1.1				(ANDROID SDK)
+com.android.support:recyclerview-v7:23.1.1			(RECYCLER VIEW)
+com.github.deano2390:MaterialShowcaseView:1.0.6		(USER TUTORIAL)
+
+
+FONCTIONNALITEES EN VRAC DE FEEDLY
+-----------------------------------
+# Recherche via icon dans toolbar
+	> Ouvre navigation drawer (right) avec une liste de cards
+		> sur la toolbar une zone clickable de recherche par texte
+			> Ouvre keyboard
+			> clear et redraw panel avec les suggestions en liste
+				> icon du site, nom du site (tronqué 30 caractères + ...)
+			> une 'x' est ajouter sur la toolbar du drawer pour annuler (align right)
+		> Une card par catégorie principale
+		> Une grille de cards (en dessous) pour les catégories subsidiaires
+			> Grille de 3 de large format portrait
+
+# Click sur une catégorie dans le drawer clear et redraw le drawer
+	> Une liste des "Top sites" (eg. presse-citron)
+	> Un bouton '+' à droite de chaque site pour l'ajouter au flux
+	> Un '#' + le nom de la catégorie apparait sur la toolbar du drawer (align left)
+	> une 'x' est ajouter sur la toolbar du drawer pour annuler (align right)
+
+# par défaut utilisateur inconnu, mais dès qu'une opération d'ajout, modif, on sauvegarde et y'a une vérif
+	> Si utilisateur inconnu
+		> Sauvegarde de l'information voulue
+		> Ouvre un drawer (left) et close tout les autres drawer
+		> menu représentant le login et register
+		> @TODO: voir comment
+
+QUESTIONS
+---------
+# Combien de catégories?
+# Combien de site par catégorie?
+# Quels sites? (API)
+# Gestion des requêtes
