@@ -1,6 +1,5 @@
 package yb.m5_mobile_application;
 
-import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -14,7 +13,6 @@ import com.crashlytics.android.Crashlytics;
 
 import io.fabric.sdk.android.Fabric;
 import yb.m5_mobile_application.navigationDrawer.NavigationDrawerFragment;
-import yb.m5_mobile_application.settings.SettingsActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,8 +22,7 @@ public class MainActivity extends AppCompatActivity {
             drawerId = R.id.main_drawer_layout,
             menuLayoutId = R.menu.menu_main,
             drawerOpenId = R.string.drawer_open,
-            drawerCloseId = R.string.drawer_close,
-            actionSettingsId = R.id.action_settings;
+            drawerCloseId = R.string.drawer_close;
 
     private ActionBarDrawerToggle mDrawerToggle;
 
@@ -73,12 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        } else if (item.getItemId() == actionSettingsId) {
-            startActivity(new Intent(this, SettingsActivity.class));
-        }
-        return super.onOptionsItemSelected(item);
+        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
 
     }
 
