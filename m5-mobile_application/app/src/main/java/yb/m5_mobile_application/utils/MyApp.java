@@ -10,7 +10,7 @@ public class MyApp extends Application {
 
     private MySharedPreferences sharedPreferences;
 
-    public MyApp getInstance(){
+    public static MyApp getInstance(){
         return singleton;
     }
 
