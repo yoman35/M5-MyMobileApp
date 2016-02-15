@@ -1,24 +1,24 @@
 <resources>
-    <string name="app_name">FEEDLY-like</string>
+    <string name="app_name" translatable="false">FEEDLY-like</string>
+
+    <string name="main_activity">Home</string>
 
     <string name="menu_item_logo">menu item logo</string>
     <string name="menu_item_home">Home</string>
     <string name="menu_item_star">Must Reads</string>
     <string name="menu_item_book">Saved For Later</string>
 
-    <string name="drawer_open">Open navigation drawer</string>
-    <string name="drawer_close">Close navigation drawer</string>
-    <string name="intent_filter_main_activity">Main screen</string>
-    <string name="log_out">LOG OUT</string>
-    <string name="setting_item_icon">Icon</string>
-    <string name="setting_card_locale">LOCATION</string>
-    <string name="setting_item_language">Language</string>
-    <string name="setting_item_country">Articles from</string>
-    <string name="setting_item_clear_data">Clear account data</string>
-    <string name="action_settings">Settings</string>
+    <string name="drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="drawer_close" translatable="false">Close navigation drawer</string>
+
+    <string name="settings_log_out">LOG OUT</string>
+    <string name="settings_item_icon">Icon</string>
+    <string name="settings_card_locale">LOCATION</string>
+    <string name="settings_item_language">Language</string>
+    <string name="settings_item_country">Articles from</string>
+    <string name="settings_item_clear_data">Clear account data</string>
     <string name="settings_activity">Settings</string>
     <string name="setting_card_data">DATA</string>
     <string name="settings_clear_data_info">Info</string>
-
 
 </resources>

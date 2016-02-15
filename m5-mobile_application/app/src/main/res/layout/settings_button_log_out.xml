@@ -7,6 +7,6 @@
     android:background="@color/colorAccent"
     android:clickable="true"
     android:foreground="?android:attr/selectableItemBackground"
-    android:text="@string/log_out"
+    android:text="@string/settings_log_out"
     android:textColor="@color/colorTextPrimary"
     android:textStyle="bold" />

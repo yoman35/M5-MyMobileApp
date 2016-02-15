@@ -12,9 +12,13 @@ import android.view.MenuItem;
 
 import com.crashlytics.android.Crashlytics;
 
+import java.util.Locale;
+
 import io.fabric.sdk.android.Fabric;
 import yb.m5_mobile_application.navigationDrawer.NavigationDrawerFragment;
 import yb.m5_mobile_application.settings.SettingsActivity;
+import yb.m5_mobile_application.utils.MyApp;
+import yb.m5_mobile_application.utils.MySharedPreferences;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,8 +38,20 @@ public class MainActivity extends AppCompatActivity {
         Fabric.with(this, new Crashlytics());
         setContentView(layoutId);
 
+        checkFirstTime();
+
         Toolbar toolbar = setUpToolbar();
         setUpNavigationDrawer(toolbar);
+    }
+
+    private void checkFirstTime() {
+        MySharedPreferences sp = MyApp.getInstance().getSP();
+        if (sp.isItFirstTime()) {
+            sp.disableFirstTime();
+            Locale locale = Locale.getDefault();
+            sp.setLanguage(locale.getDisplayLanguage());
+            sp.setCountry(locale.getDisplayCountry());
+        }
     }
 
     private Toolbar setUpToolbar() {

@@ -15,7 +15,7 @@
             android:id="@+id/setting_clear_data_icon"
             android:layout_width="?attr/actionBarSize"
             android:layout_height="match_parent"
-            android:contentDescription="@string/setting_item_icon"
+            android:contentDescription="@string/settings_item_icon"
             android:scaleType="center"
             android:src="@drawable/ic_delete_forever_black_36dp" />
 
@@ -28,7 +28,7 @@
             android:paddingLeft="@dimen/margin_16"
             android:paddingRight="@dimen/margin_16"
             android:paddingStart="@dimen/margin_16"
-            android:text="@string/setting_item_clear_data" />
+            android:text="@string/settings_item_clear_data" />
     </LinearLayout>
 
     <ImageView

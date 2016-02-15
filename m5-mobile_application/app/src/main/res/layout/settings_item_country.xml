@@ -9,7 +9,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:contentDescription="@string/setting_item_icon"
+        android:contentDescription="@string/settings_item_icon"
         android:scaleType="center"
         android:src="@drawable/ic_move_to_inbox_black_36dp" />
 
@@ -23,7 +23,7 @@
         android:paddingLeft="@dimen/margin_16"
         android:paddingRight="@dimen/margin_16"
         android:paddingStart="@dimen/margin_16"
-        android:text="@string/setting_item_country" />
+        android:text="@string/settings_item_country" />
 
     <TextView
         android:id="@+id/setting_country_choice"
@@ -35,7 +35,6 @@
         android:clickable="true"
         android:foreground="?android:attr/selectableItemBackground"
         android:gravity="center"
-        android:text="France"
         android:textColor="@color/colorPrimary"
         android:textStyle="bold" />
 </LinearLayout>

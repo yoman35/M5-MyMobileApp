@@ -1,6 +1,5 @@
 package yb.m5_mobile_application.utils;
 
-
 import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
@@ -29,31 +28,43 @@ public class MySharedPreferences {
 
     public void setUser(User user) {
         String jsonUser = new Gson().toJson(user);
-        this.sharedPreferences.edit().putString(Key.USER.getName(), jsonUser);
+        this.sharedPreferences
+                .edit()
+                .putString(Key.USER.getName(), jsonUser)
+                .apply();
     }
 
     public boolean isItFirstTime() {
         return this.sharedPreferences.getBoolean(Key.FIRST_LAUNCH.getName(), true);
     }
 
-    public void desableFirstTime() {
-        this.sharedPreferences.edit().putBoolean(Key.FIRST_LAUNCH.getName(), false);
+    public void disableFirstTime() {
+        this.sharedPreferences
+                .edit()
+                .putBoolean(Key.FIRST_LAUNCH.getName(), false)
+                .apply();
     }
 
     public String getCountry() {
         return this.sharedPreferences.getString(Key.COUNTRY.getName(), "");
     }
 
-    public void setCountry(Country country) {
-        this.sharedPreferences.edit().putString(Key.COUNTRY.getName(), country.getName());
+    public void setCountry(String country) {
+        this.sharedPreferences
+                .edit()
+                .putString(Key.COUNTRY.getName(), country)
+                .apply();
     }
 
     public String getLanguage() {
         return this.sharedPreferences.getString(Key.LANGUAGE.getName(), "");
     }
 
-    public void setLanguage(Language language) {
-        this.sharedPreferences.edit().putString(Key.LANGUAGE.getName(), language.getName());
+    public void setLanguage(String language) {
+        this.sharedPreferences
+                .edit()
+                .putString(Key.LANGUAGE.getName(), language)
+                .apply();
     }
 
     public Set<String> getCategories() {
@@ -66,7 +77,10 @@ public class MySharedPreferences {
         for (Category category : categories) {
             tmp.add(category.getName());
         }
-        this.sharedPreferences.edit().putStringSet(Key.CATEGORIES.getName(), tmp);
+        this.sharedPreferences
+                .edit()
+                .putStringSet(Key.CATEGORIES.getName(), tmp)
+                .apply();
     }
 
     public Set<Article> getBookedArticles() {
@@ -83,7 +97,10 @@ public class MySharedPreferences {
         Set<String> jsonArticles = new HashSet<>();
         for (Article article : bookedArticles)
             jsonArticles.add(new Gson().toJson(article));
-        this.sharedPreferences.edit().putStringSet(Key.BOOKED_ARTICLES.getName(), jsonArticles);
+        this.sharedPreferences
+                .edit()
+                .putStringSet(Key.BOOKED_ARTICLES.getName(), jsonArticles)
+                .apply();
     }
 
     public void setSP(SharedPreferences sharedPreferences) {
@@ -100,39 +117,6 @@ public class MySharedPreferences {
         private String name;
 
         Key(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-    }
-
-    public enum Country {
-        FR("__france__"),
-        EN("__england__"),
-        SP("__spain__"),
-        GE("__germany__"),
-        CN("__china__"),
-        KR("__korea__"),
-        JP("__japan__");
-        private String name;
-
-        Country(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return this.name;
-        }
-    }
-
-    public enum Language {
-        FR("__french__"),
-        EN("__english__");
-        private String name;
-
-        Language(String name) {
             this.name = name;
         }
 
