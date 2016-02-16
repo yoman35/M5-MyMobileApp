@@ -33,13 +33,12 @@
             android:layout_below="@id/settings_layout_card_location"
             android:layout_marginTop="@dimen/margin_16"/>
 
-        <include
-            android:id="@+id/settings_layout_button_log_out"
-            layout="@layout/settings_button_log_out"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"/>
-
     </RelativeLayout>
 
+    <include
+        android:id="@+id/settings_layout_button_log_out"
+        layout="@layout/settings_button_log_out"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

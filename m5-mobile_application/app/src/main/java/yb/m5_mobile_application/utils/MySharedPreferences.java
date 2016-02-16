@@ -56,17 +56,6 @@ public class MySharedPreferences {
                 .apply();
     }
 
-    public String getLanguage() {
-        return this.sharedPreferences.getString(Key.LANGUAGE.getName(), "");
-    }
-
-    public void setLanguage(String language) {
-        this.sharedPreferences
-                .edit()
-                .putString(Key.LANGUAGE.getName(), language)
-                .apply();
-    }
-
     public Set<String> getCategories() {
         Set<String> defValue = new HashSet<>();
         return this.sharedPreferences.getStringSet(Key.CATEGORIES.getName(), defValue);
@@ -111,7 +100,6 @@ public class MySharedPreferences {
         USER("__user__"),
         FIRST_LAUNCH("__first_launch__"),
         COUNTRY("__country__"),
-        LANGUAGE("__language__"),
         CATEGORIES("__categories__"),
         BOOKED_ARTICLES("__booked_articles__");
         private String name;

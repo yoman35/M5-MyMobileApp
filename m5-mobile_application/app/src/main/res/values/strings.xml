@@ -20,5 +20,20 @@
     <string name="settings_activity">Settings</string>
     <string name="setting_card_data">DATA</string>
     <string name="settings_clear_data_info">Info</string>
+    <string name="clear_data_info_dialog_title">Clear your data ?</string>
+    <string name="clear_data_info_dialog_clear">CLEAR</string>
+    <string name="clear_data_info_dialog_cancel">CANCEL</string>
+    <string name="country_choice_dialog_title">Change to</string>
+    <string name="country_choice_dialog_ok" translatable="false">OK</string>
+    <string name="country_choice_dialog_cancel">CANCEL</string>
+    <array name="countries">
+        <item>France</item>
+        <item>England</item>
+    </array>
+    <string name="intent_filter_main_activity">Main activity</string>
+    <string name="action_settings">Settings</string>
+    <string name="england">UK</string>
+    <string name="france">FR</string>
+
 
 </resources>

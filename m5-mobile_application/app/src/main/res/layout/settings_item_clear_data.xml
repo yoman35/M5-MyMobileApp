@@ -5,6 +5,7 @@
     android:orientation="horizontal">
 
     <LinearLayout
+        android:id="@+id/settings_clear_data"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="4"
@@ -13,16 +14,18 @@
 
         <ImageView
             android:id="@+id/setting_clear_data_icon"
-            android:layout_width="?attr/actionBarSize"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="1"
             android:contentDescription="@string/settings_item_icon"
             android:scaleType="center"
             android:src="@drawable/ic_delete_forever_black_36dp" />
 
         <TextView
             android:id="@+id/setting_clear_data_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:layout_weight="3"
             android:gravity="start|center_vertical"
             android:paddingEnd="@dimen/margin_16"
             android:paddingLeft="@dimen/margin_16"
@@ -32,7 +35,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/setting_clear_data_choice"
+        android:id="@+id/setting_clear_data_information"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginEnd="@dimen/margin_16"

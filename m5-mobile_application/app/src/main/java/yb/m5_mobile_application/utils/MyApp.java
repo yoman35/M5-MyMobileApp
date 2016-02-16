@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 
+import java.util.Locale;
+
 public class MyApp extends Application {
 
     private static MyApp singleton;
@@ -39,6 +41,10 @@ public class MyApp extends Application {
 
     public MySharedPreferences getSP() {
         return this.sharedPreferences;
+    }
+
+    public String getPhoneCountry() {
+        return Locale.getDefault().getDisplayCountry();
     }
 
 }

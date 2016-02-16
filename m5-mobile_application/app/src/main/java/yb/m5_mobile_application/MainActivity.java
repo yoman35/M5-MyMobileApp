@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import com.crashlytics.android.Crashlytics;
 
+
 import java.util.Locale;
 
 import io.fabric.sdk.android.Fabric;
@@ -48,9 +49,11 @@ public class MainActivity extends AppCompatActivity {
         MySharedPreferences sp = MyApp.getInstance().getSP();
         if (sp.isItFirstTime()) {
             sp.disableFirstTime();
-            Locale locale = Locale.getDefault();
-            sp.setLanguage(locale.getDisplayLanguage());
-            sp.setCountry(locale.getDisplayCountry());
+            String fr = new Locale("", "FR").getDisplayCountry();
+            if (MyApp.getInstance().getPhoneCountry().equals(fr))
+                sp.setCountry(getString(R.string.france));
+            else
+                sp.setCountry(getString(R.string.england));
         }
     }
 

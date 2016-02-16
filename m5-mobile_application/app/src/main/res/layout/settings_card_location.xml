@@ -3,7 +3,7 @@
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:id="@+id/settings_card"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     cardview:cardBackgroundColor="@android:color/white"
     cardview:cardCornerRadius="@dimen/settings_card_corner_radius"
     cardview:cardElevation="@dimen/settings_card_elevation"
@@ -26,10 +26,6 @@
             android:text="@string/settings_card_locale"
             android:textColor="@color/colorTextPrimary"
             android:textStyle="bold" />
-
-        <include layout="@layout/settings_item_language" />
-
-        <include layout="@layout/settings_separator" />
 
         <include layout="@layout/settings_item_country" />
 

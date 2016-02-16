@@ -1,35 +1,91 @@
 package yb.m5_mobile_application.settings;
 
+import android.app.DialogFragment;
 import android.content.ContentValues;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import yb.m5_mobile_application.R;
 import yb.m5_mobile_application.utils.MyApp;
 import yb.m5_mobile_application.utils.MySharedPreferences;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity
+        implements CountryChoiceDialog.CountryChoiceDialogListener {
 
     private static final int
             layoutId = R.layout.settings_activity,
             toolbarId = R.id.toolbar,
-            languageChoiceId = R.id.setting_language_choice,
-            countryChoiceId = R.id.setting_country_choice;
+            countryChoiceId = R.id.setting_country_choice,
+            clearDataInformation = R.id.setting_clear_data_information;
 
     private ContentValues mContentValues;
     private boolean mDataSetChanged;
+
+    private List<String> mCountryChoices = new ArrayList<>();
+    private TextView mCountryChoice;
+
+    public SettingsActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(layoutId);
-        mContentValues = new ContentValues();
-        mDataSetChanged = false;
+        initVariables();
+        initCountryChoice();
+        checkSavedInstanceState(savedInstanceState);
+        initClearData();
+        initClearDataInformation();
         setUpToolbar();
         setDefaultOptions();
+    }
+
+    private void initVariables() {
+        mContentValues = new ContentValues();
+        mDataSetChanged = false;
+    }
+
+    private void initCountryChoice() {
+        mCountryChoices.add(getString(R.string.france));
+        mCountryChoices.add(getString(R.string.england));
+        mCountryChoice = (TextView) findViewById(countryChoiceId);
+        mCountryChoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CountryChoiceDialog countryDialog = new CountryChoiceDialog();
+                countryDialog.setCheckedItem(getChoiceId());
+                countryDialog.show(getFragmentManager(), "countryChoice");
+            }
+        });
+    }
+
+    private void initClearData() {
+        LinearLayout clearData = (LinearLayout) findViewById(R.id.settings_clear_data);
+        clearData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClearDataInfoDialog clearDataDialog = new ClearDataInfoDialog();
+                clearDataDialog.show(getFragmentManager(), "clearData");
+            }
+        });
+    }
+
+    private void initClearDataInformation() {
+        ImageView clearDataInfo = (ImageView) findViewById(clearDataInformation);
+        clearDataInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: fullscreen dialog
+            }
+        });
     }
 
     private Toolbar setUpToolbar() {
@@ -40,75 +96,80 @@ public class SettingsActivity extends AppCompatActivity {
         return toolbar;
     }
 
-    @Override
-    protected void onResume() {
-        Log.d("SETTINGS", "RESUME");
-        super.onResume();
-        if (mDataSetChanged)
-            restoreTmpData();
+    private void setDefaultOptions() {
+        mCountryChoice.setText(MyApp.getInstance().getSP().getCountry());
     }
 
     @Override
     protected void onPause() {
-        Log.d("SETTINGS", "PAUSE");
         if (dataHasChanged())
             saveTmpData();
         super.onPause();
     }
 
     @Override
-    protected void onStart() {
-        Log.d("SETTINGS", "START");
-        super.onStart();
+    protected void onResume() {
+        super.onResume();
         if (mDataSetChanged)
             restoreTmpData();
     }
 
-    @Override
-    protected void onStop() {
-        Log.d("SETTINGS", "STOP");
-        if (dataHasChanged())
-            saveTmpData();
-        super.onStop();
-    }
-
     private boolean dataHasChanged() {
-        TextView language = (TextView) findViewById(languageChoiceId);
-        TextView country = (TextView) findViewById(countryChoiceId);
-        String tmpLanguage = language.getText().toString();
-        String tmpCountry = country.getText().toString();
-        if (!tmpLanguage.equals(MyApp.getInstance().getSP().getLanguage()) ||
-                !tmpCountry.equals(MyApp.getInstance().getSP().getCountry())) {
+        String country = mCountryChoice.getText().toString();
+        if (!country.equals(MyApp.getInstance().getSP().getCountry())) {
             mDataSetChanged = true;
             return true;
         }
         return false;
     }
 
-    private void setDefaultOptions() {
-        TextView language = (TextView) findViewById(languageChoiceId);
-        TextView country = (TextView) findViewById(countryChoiceId);
-        language.setText(MyApp.getInstance().getSP().getLanguage());
-        country.setText(MyApp.getInstance().getSP().getCountry());
-    }
-
     private void saveTmpData() {
-        TextView language = (TextView) findViewById(languageChoiceId);
-        TextView country = (TextView) findViewById(countryChoiceId);
-        String tmpLanguage = language.getText().toString();
-        String tmpCountry = country.getText().toString();
+        String tmpCountry = mCountryChoice.getText().toString();
         mContentValues.clear();
-        mContentValues.put(MySharedPreferences.Key.LANGUAGE.getName(), tmpLanguage);
         mContentValues.put(MySharedPreferences.Key.COUNTRY.getName(), tmpCountry);
     }
 
     private void restoreTmpData() {
-        TextView language = (TextView) findViewById(languageChoiceId);
-        TextView country = (TextView) findViewById(countryChoiceId);
-        String tmpLanguage = mContentValues.getAsString(MySharedPreferences.Key.LANGUAGE.getName());
-        String tmpCountry = mContentValues.getAsString(MySharedPreferences.Key.COUNTRY.getName());
-        language.setText(tmpLanguage);
-        country.setText(tmpCountry);
+        String countryKey = MySharedPreferences.Key.COUNTRY.getName();
+        String tmpCountry = mContentValues.getAsString(countryKey);
+        mCountryChoice.setText(tmpCountry);
         mDataSetChanged = false;
+    }
+
+    private int getChoiceId() {
+        return mCountryChoices.indexOf(mCountryChoice.getText().toString());
+    }
+
+    private void setChoiceValue(int choiceId) {
+        mCountryChoice.setText(mCountryChoices.get(choiceId));
+    }
+
+    @Override
+    public void onCountryChoiceDialogPositiveClick(DialogFragment dialog) {
+        setChoiceValue(((CountryChoiceDialog) dialog).getItemChecked());
+    }
+
+    private void checkSavedInstanceState(Bundle savedInstanceState) {
+        if (savedInstanceState != null)
+            mCountryChoice.setText(savedInstanceState.getString(String.valueOf(countryChoiceId)));
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putString(String.valueOf(countryChoiceId), mCountryChoice.getText().toString());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mCountryChoice.setText(savedInstanceState.getString(String.valueOf(countryChoiceId)));
+    }
+
+    @Override
+    protected void onDestroy() {
+        String countryChoice = mCountryChoice.getText().toString();
+        MyApp.getInstance().getSP().setCountry(countryChoice);
+        super.onDestroy();
     }
 }
