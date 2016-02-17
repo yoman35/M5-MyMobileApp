@@ -1,10 +1,12 @@
-package yb.m5_mobile_application.navigationDrawer;
+package yb.m5_mobile_application.menu;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -34,16 +36,12 @@ public class MenuBodyAdapter extends RecyclerView.Adapter<MenuBodyAdapter.MenuBo
         MenuItem current = mData.get(position);
         holder.logo.setImageDrawable(current.getLogo());
         holder.title.setText(current.getTitle());
-        holder.counter.setText(String.valueOf(current.getCounter()));
-        View.OnClickListener clickListener = new View.OnClickListener() {
+        holder.layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: menu body click listener
+
             }
-        };
-        holder.logo.setOnClickListener(clickListener);
-        holder.title.setOnClickListener(clickListener);
-        holder.counter.setOnClickListener(clickListener);
+        });
     }
 
     @Override
@@ -52,13 +50,19 @@ public class MenuBodyAdapter extends RecyclerView.Adapter<MenuBodyAdapter.MenuBo
     }
 
     public class MenuBodyViewHolder extends RecyclerView.ViewHolder {
+        private static final int
+                layoutId = R.id.menu_body_item,
+                logoId = R.id.menu_item_logo,
+                titleId = R.id.menu_item_title;
+        LinearLayout layout;
         ImageView logo;
-        TextView title, counter;
+        TextView title;
+
         public MenuBodyViewHolder(View v) {
             super(v);
-            logo = (ImageView) v.findViewById(R.id.menu_item_logo);
-            title = (TextView) v.findViewById(R.id.menu_item_title);
-            counter = (TextView) v.findViewById(R.id.menu_item_counter);
+            layout = (LinearLayout) itemView.findViewById(layoutId);
+            logo = (ImageView) v.findViewById(logoId);
+            title = (TextView) v.findViewById(titleId);
         }
     }
 

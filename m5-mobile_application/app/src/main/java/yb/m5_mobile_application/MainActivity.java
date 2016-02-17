@@ -11,7 +11,7 @@ import android.view.MenuItem;
 import com.crashlytics.android.Crashlytics;
 
 import io.fabric.sdk.android.Fabric;
-import yb.m5_mobile_application.navigationDrawer.NavigationDrawerFragment;
+import yb.m5_mobile_application.menu.MenuFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle = setUpDrawerToggle(drawerLayout, toolbar);
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.navigation_drawer, new NavigationDrawerFragment())
+                .replace(R.id.navigation_drawer, new MenuFragment())
                 .commit();
         drawerLayout.setDrawerListener(mDrawerToggle);
     }

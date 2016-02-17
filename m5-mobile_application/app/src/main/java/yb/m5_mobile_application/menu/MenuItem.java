@@ -1,4 +1,4 @@
-package yb.m5_mobile_application.navigationDrawer;
+package yb.m5_mobile_application.menu;
 
 import android.graphics.drawable.Drawable;
 
