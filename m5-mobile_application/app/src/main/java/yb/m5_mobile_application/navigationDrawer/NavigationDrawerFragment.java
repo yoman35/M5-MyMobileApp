@@ -26,10 +26,9 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View v =  inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
-
         setUpRVHead(v);
+        //TODO: set up body menu (categories, favorites, ...)
         //setUpRVBody(v);
 
         return v;

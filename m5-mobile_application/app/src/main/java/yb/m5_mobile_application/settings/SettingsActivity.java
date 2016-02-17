@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,6 +47,7 @@ public class SettingsActivity extends AppCompatActivity
         checkSavedInstanceState(savedInstanceState);
         initClearData();
         initClearDataInformation();
+        initLogOutButton();
         setUpToolbar();
         setDefaultOptions();
     }
@@ -87,6 +89,17 @@ public class SettingsActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(context, ClearDataInformationActivity.class));
+            }
+        });
+    }
+
+
+    private void initLogOutButton() {
+        Button logOut = (Button) findViewById(R.id.settings_layout_button_log_out);
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: Log out
             }
         });
     }
