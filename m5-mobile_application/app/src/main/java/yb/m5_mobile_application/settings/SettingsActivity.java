@@ -2,6 +2,8 @@ package yb.m5_mobile_application.settings;
 
 import android.app.DialogFragment;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -72,7 +74,7 @@ public class SettingsActivity extends AppCompatActivity
         clearData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ClearDataInfoDialog clearDataDialog = new ClearDataInfoDialog();
+                ClearDataDialog clearDataDialog = new ClearDataDialog();
                 clearDataDialog.show(getFragmentManager(), "clearData");
             }
         });
@@ -80,10 +82,11 @@ public class SettingsActivity extends AppCompatActivity
 
     private void initClearDataInformation() {
         ImageView clearDataInfo = (ImageView) findViewById(clearDataInformation);
+        final Context context = this;
         clearDataInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: fullscreen dialog
+                startActivity(new Intent(context, ClearDataInformationActivity.class));
             }
         });
     }
@@ -141,7 +144,9 @@ public class SettingsActivity extends AppCompatActivity
     }
 
     private void setChoiceValue(int choiceId) {
-        mCountryChoice.setText(mCountryChoices.get(choiceId));
+        String country = mCountryChoices.get(choiceId);
+        mCountryChoice.setText(country);
+        MyApp.getInstance().getSP().setCountry(country);
     }
 
     @Override

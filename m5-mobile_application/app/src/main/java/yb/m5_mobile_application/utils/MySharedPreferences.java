@@ -5,8 +5,10 @@ import android.content.SharedPreferences;
 import com.google.gson.Gson;
 
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
+import yb.m5_mobile_application.R;
 import yb.m5_mobile_application.models.Article;
 import yb.m5_mobile_application.models.User;
 
@@ -128,6 +130,16 @@ public class MySharedPreferences {
         public String getName() {
             return this.name;
         }
+    }
+
+    public void setDefaultSharedPreferences() {
+        String fr = new Locale("", "FR").getDisplayCountry();
+        if (MyApp.getInstance().getPhoneCountry().equals(fr))
+            setCountry(MyApp.getInstance().getString(R.string.france));
+        else
+            setCountry(MyApp.getInstance().getString(R.string.england));
+        setCategories(new HashSet<Category>());
+        setBookedArticles(new HashSet<Article>());
     }
 
 }

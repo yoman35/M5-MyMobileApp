@@ -3,6 +3,7 @@ package yb.m5_mobile_application.utils;
 import android.app.Application;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.widget.Toast;
 
 import java.util.Locale;
 
@@ -45,6 +46,10 @@ public class MyApp extends Application {
 
     public String getPhoneCountry() {
         return Locale.getDefault().getDisplayCountry();
+    }
+
+    public void displayToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG);
     }
 
 }
