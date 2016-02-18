@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="yb.m5_mobile_application">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".utils.MyApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter android:label="@string/main_activity">
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.m5-myMobileApplication.com"
+                    android:pathPrefix="/app/main"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".settings.SettingsActivity">
+            <intent-filter android:label="@string/settings_activity">
+                <action android:name="android.intent.action.EDIT" />
+                <category android:name="android.intent.category.PREFERENCE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".settings.ClearDataInformationActivity"
+            android:label="@string/title_activity_clear_data_information"
+            android:theme="@style/AppTheme">
+            <intent-filter android:label="@string/settings_activity">
+                <action android:name="android.intent.action.EDIT" />
+                <category android:name="android.intent.category.PREFERENCE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="yb.m5_mobile_application.settings.SettingsActivity" />
+        </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="ad21306540fa19540024bffec9fd7cbe352d49b9" />
+    </application>
+
+</manifest>
