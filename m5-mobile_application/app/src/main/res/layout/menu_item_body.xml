@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/menu_body_item"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="@dimen/menu_item_height"
-    android:layout_marginEnd="@dimen/margin_16"
-    android:layout_marginRight="@dimen/margin_16"
     android:background="@android:color/white"
-    android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:orientation="horizontal">
+    android:paddingEnd="@dimen/margin_16"
+    android:paddingLeft="@dimen/margin_16"
+    android:paddingRight="@dimen/margin_16"
+    android:paddingStart="@dimen/margin_16">
 
     <ImageView
         android:id="@+id/menu_item_logo"
         android:layout_width="@dimen/menu_item_height"
         android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:contentDescription="@string/menu_item_logo"
-        android:scaleType="center" />
+        android:scaleType="center"/>
 
     <TextView
         android:id="@+id/menu_item_title"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_marginLeft="@dimen/margin_16"
-        android:layout_marginStart="@dimen/margin_16"
-        android:layout_weight="4"
         android:gravity="start|center_vertical"
-        android:textColor="@android:color/black"/>
+        android:layout_toRightOf="@id/menu_item_logo"
+        android:layout_toEndOf="@id/menu_item_logo"/>
 
-    <ImageView
-        android:id="@+id/menu_item_forward"
-        android:layout_width="0dp"
+    <TextView
+        android:id="@+id/menu_item_counter"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:contentDescription="@string/forward_icon"
-        android:scaleType="center"
-        android:src="@drawable/ic_forward_black_18dp" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="end|center_vertical"
+        android:textColor="@color/colorDivider"/>
 
-</LinearLayout>
+</RelativeLayout>

@@ -16,7 +16,7 @@ import com.crashlytics.android.Crashlytics;
 import java.util.Locale;
 
 import io.fabric.sdk.android.Fabric;
-import yb.m5_mobile_application.menu.MenuFragment;
+import yb.m5_mobile_application.navigationDrawer.NavigationDrawerFragment;
 import yb.m5_mobile_application.settings.SettingsActivity;
 import yb.m5_mobile_application.utils.MyApp;
 import yb.m5_mobile_application.utils.MySharedPreferences;
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle = setUpDrawerToggle(drawerLayout, toolbar);
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.navigation_drawer, new MenuFragment())
+                .replace(R.id.navigation_drawer, new NavigationDrawerFragment())
                 .commit();
         drawerLayout.setDrawerListener(mDrawerToggle);
     }
