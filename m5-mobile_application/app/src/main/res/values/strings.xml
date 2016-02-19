@@ -37,11 +37,10 @@
     <string name="title_activity_clear_data_information">Information</string>
     <string name="clear_data_done">All your application data has been erased.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_item_forward">Click to continue</string>
     <string name="menu_item_category">Categories</string>
     <string name="menu_item_favorites">Favorites</string>
 
-
+    <string name="jvc_login">appandr</string>
+    <string name="jvc_pass">e32!cdf</string>
 </resources>
