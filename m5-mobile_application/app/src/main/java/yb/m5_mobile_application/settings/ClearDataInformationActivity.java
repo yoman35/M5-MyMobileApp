@@ -5,17 +5,8 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.widget.TextView;
-
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import yb.m5_mobile_application.R;
-import yb.m5_mobile_application.api.jvc.RequestJVCNews;
-import yb.m5_mobile_application.utils.VolleySingleton;
 
 public class ClearDataInformationActivity extends AppCompatActivity {
 
