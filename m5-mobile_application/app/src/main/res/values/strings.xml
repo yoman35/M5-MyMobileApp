@@ -41,6 +41,8 @@
     <string name="menu_item_category">Categories</string>
     <string name="menu_item_favorites">Favorites</string>
 
-    <string name="jvc_login">appandr</string>
-    <string name="jvc_pass">e32!cdf</string>
+    <string name="jvc_login" translatable="false">appandr</string>
+    <string name="jvc_pass" translatable="false">e32!cdf</string>
+
+    <string name="article_item_image_description">Image of the article</string>
 </resources>

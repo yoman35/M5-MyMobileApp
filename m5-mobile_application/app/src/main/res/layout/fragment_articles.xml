@@ -1,0 +1,6 @@
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="yb.m5_mobile_application.main_content.ArticlesFragment"
+    android:id="@+id/articles_recycler_view"/>

@@ -12,10 +12,10 @@ import android.view.MenuItem;
 
 import com.crashlytics.android.Crashlytics;
 
-
 import java.util.Locale;
 
 import io.fabric.sdk.android.Fabric;
+import yb.m5_mobile_application.main_content.ArticlesFragment;
 import yb.m5_mobile_application.menu.MenuFragment;
 import yb.m5_mobile_application.settings.SettingsActivity;
 import yb.m5_mobile_application.utils.MyApp;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int
             layoutId = R.layout.activity_main,
             toolbarId = R.id.toolbar,
+            contentId = R.id.main_content,
             drawerId = R.id.main_drawer_layout,
             menuLayoutId = R.menu.menu_main,
             drawerOpenId = R.string.drawer_open,
@@ -43,6 +44,15 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = setUpToolbar();
         setUpNavigationDrawer(toolbar);
+
+        setContent();
+    }
+
+    private void setContent() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(contentId, new ArticlesFragment())
+                .commit();
     }
 
     private void checkFirstTime() {

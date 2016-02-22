@@ -1,5 +1,7 @@
 package yb.m5_mobile_application.models;
 
+import android.graphics.drawable.Drawable;
+
 public class Article {
 
     private String id;
@@ -9,6 +11,7 @@ public class Article {
     private String idMachine;
     private String urlVignette;
     private String urlVignetteBig;
+    private Drawable image;
 
     public String getTitle() {
         return title;
@@ -64,5 +67,13 @@ public class Article {
 
     public void setUrlVignetteBig(String url) {
         this.urlVignetteBig = url;
+    }
+
+    public Drawable getImage() {
+        return null;
+    }
+
+    public void setImage(Drawable image) {
+        this.image = image;
     }
 }
