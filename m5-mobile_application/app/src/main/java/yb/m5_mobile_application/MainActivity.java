@@ -12,7 +12,6 @@ import android.view.MenuItem;
 
 import com.crashlytics.android.Crashlytics;
 
-
 import java.util.Locale;
 
 import io.fabric.sdk.android.Fabric;
@@ -20,6 +19,8 @@ import yb.m5_mobile_application.menu.MenuFragment;
 import yb.m5_mobile_application.settings.SettingsActivity;
 import yb.m5_mobile_application.utils.MyApp;
 import yb.m5_mobile_application.utils.MySharedPreferences;
+
+import com.facebook.FacebookSdk;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(layoutId);
 
         checkFirstTime();
@@ -78,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
@@ -98,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, SettingsActivity.class));
         }
         return super.onOptionsItemSelected(item);
-
     }
 
     @Override

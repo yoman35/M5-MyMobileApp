@@ -12,6 +12,7 @@ apply plugin: 'io.fabric'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
+    mavenCentral()
 }
 
 
@@ -47,4 +48,5 @@ dependencies {
     compile 'com.github.deano2390:MaterialShowcaseView:1.0.6'
     compile 'com.google.code.gson:gson:2.4'
     compile 'com.android.support:design:23.1.1'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
 }

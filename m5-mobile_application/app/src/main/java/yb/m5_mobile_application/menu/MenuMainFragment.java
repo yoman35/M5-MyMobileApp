@@ -16,6 +16,8 @@ import java.util.List;
 
 import yb.m5_mobile_application.R;
 
+import com.facebook.login.widget.LoginButton;
+
 public class MenuMainFragment extends Fragment {
 
     private static final int
@@ -35,6 +37,9 @@ public class MenuMainFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_menu_main, container, false);
         setUpRVHead(v);
         setUpRVBody(v);
+        LoginButton authButton = (LoginButton) v.findViewById(R.id.login_button);
+        authButton.setFragment(this);
+        authButton.setReadPermissions("user_friends");
         return v;
     }
 
