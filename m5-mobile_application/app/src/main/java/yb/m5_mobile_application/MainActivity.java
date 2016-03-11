@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
             menuLayoutId = R.menu.menu_main,
             drawerOpenId = R.string.drawer_open,
             drawerCloseId = R.string.drawer_close,
-            actionSettingsId = R.id.action_settings;
+            actionSettingsId = R.id.action_settings,
+            navigationDrawerId = R.id.navigation_drawer;
 
     private ActionBarDrawerToggle mDrawerToggle;
 
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = setUpToolbar();
         setUpNavigationDrawer(toolbar);
+        showToolbarLogo();
 
         setContent();
     }
@@ -82,9 +84,9 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle = setUpDrawerToggle(drawerLayout, toolbar);
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.navigation_drawer, new MenuFragment())
+                .replace(navigationDrawerId, new MenuFragment())
                 .commit();
-        drawerLayout.setDrawerListener(mDrawerToggle);
+        drawerLayout.addDrawerListener(mDrawerToggle);
     }
 
     @Override
@@ -115,5 +117,12 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(menuLayoutId, menu);
         return true;
+    }
+
+    private void showToolbarLogo() {
+        assert getSupportActionBar() != null;
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
     }
 }

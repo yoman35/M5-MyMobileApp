@@ -1,6 +1,18 @@
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/articles_root_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="yb.m5_mobile_application.main_content.ArticlesFragment"
-    android:id="@+id/articles_recycler_view"/>
+    android:background="@color/colorAccent"
+    tools:context="yb.m5_mobile_application.main_content.ArticlesFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="@string/no_more_article"
+        android:textColor="@color/colorTextPrimary"
+        android:textSize="42sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

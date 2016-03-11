@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="title_article" type="id">100</item>
+    <item name="date_article" type="id">101</item>
+    <item name="resume_article" type="id">102</item>
+</resources>

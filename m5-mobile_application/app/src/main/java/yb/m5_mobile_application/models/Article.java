@@ -8,9 +8,6 @@ public class Article {
     private String title;
     private String resume;
     private String date;
-    private String idMachine;
-    private String urlVignette;
-    private String urlVignetteBig;
     private Drawable image;
 
     public String getTitle() {
@@ -45,35 +42,20 @@ public class Article {
         this.date = date;
     }
 
-    public String getIdMachine() {
-        return idMachine;
-    }
-
-    public void setIdMachine(String id) {
-        this.idMachine = id;
-    }
-
-    public String getUrlVignette() {
-        return urlVignette;
-    }
-
-    public void setUrlVignette(String url) {
-        this.urlVignette = url;
-    }
-
-    public String getUrlVignetteBig() {
-        return urlVignetteBig;
-    }
-
-    public void setUrlVignetteBig(String url) {
-        this.urlVignetteBig = url;
-    }
-
     public Drawable getImage() {
-        return null;
+        return image;
     }
 
     public void setImage(Drawable image) {
         this.image = image;
+    }
+
+    @Override
+    public String toString() {
+        return "Article: \'" + id
+                + "\', title=\'" + title
+                + "\', date=\'" + date
+                + "\', resume=\'" + resume
+                + "\', image=\'" + image.toString();
     }
 }
