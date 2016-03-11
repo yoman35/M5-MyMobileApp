@@ -66,12 +66,6 @@ public class SerializerJVCNews {
                             article.setResume(text);
                         } else if (tag.equalsIgnoreCase("date")) {
                             article.setDate(text);
-                        } else if (tag.equalsIgnoreCase("id_machine")) {
-                            article.setIdMachine(text);
-                        } else if (tag.equalsIgnoreCase("url_vignette")) {
-                            article.setUrlVignette(text);
-                        } else if (tag.equalsIgnoreCase("vignette_grande")) {
-                            article.setUrlVignetteBig(text);
                         }
                         break;
                     default:

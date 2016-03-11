@@ -13,6 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.crashlytics.android.Crashlytics;
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareButton;
 
 import java.util.Locale;
 
@@ -22,10 +25,6 @@ import yb.m5_mobile_application.menu.MenuFragment;
 import yb.m5_mobile_application.settings.SettingsActivity;
 import yb.m5_mobile_application.utils.MyApp;
 import yb.m5_mobile_application.utils.MySharedPreferences;
-
-import com.facebook.FacebookSdk;
-import com.facebook.share.model.ShareLinkContent;
-import com.facebook.share.widget.ShareButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = setUpToolbar();
         setUpNavigationDrawer(toolbar);
         showToolbarLogo();
-setUpShareButton();
+        setUpShareButton();
         setContent();
     }
 
@@ -97,7 +96,8 @@ setUpShareButton();
     }
 
     private void setUpShareButton() {
-        shareButton = (ShareButton)findViewById(R.id.share_btn);
+        /*
+        shareButton = (ShareButton) findViewById(R.id.share_btn);
         shareButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 shareButton.setShareContent(setUpSharingModel(
@@ -108,6 +108,7 @@ setUpShareButton();
                 shareButton.performClick();
             }
         });
+        */
     }
 
     private ActionBarDrawerToggle setUpDrawerToggle(DrawerLayout layout, Toolbar toolbar) {
@@ -121,7 +122,7 @@ setUpShareButton();
                 .beginTransaction()
                 .replace(navigationDrawerId, new MenuFragment())
                 .commit();
-        drawerLayout.setDrawerListener(mDrawerToggle);
+        drawerLayout.addDrawerListener(mDrawerToggle);
     }
 
     @Override
