@@ -2,6 +2,7 @@ package yb.m5_mobile_application;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -9,9 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.crashlytics.android.Crashlytics;
-
 
 import java.util.Locale;
 
@@ -20,6 +21,10 @@ import yb.m5_mobile_application.menu.MenuFragment;
 import yb.m5_mobile_application.settings.SettingsActivity;
 import yb.m5_mobile_application.utils.MyApp;
 import yb.m5_mobile_application.utils.MySharedPreferences;
+
+import com.facebook.FacebookSdk;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,15 +39,19 @@ public class MainActivity extends AppCompatActivity {
 
     private ActionBarDrawerToggle mDrawerToggle;
 
+    private ShareButton shareButton;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
+        FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(layoutId);
 
         checkFirstTime();
 
         Toolbar toolbar = setUpToolbar();
         setUpNavigationDrawer(toolbar);
+        setUpShareButton();
     }
 
     private void checkFirstTime() {
@@ -63,6 +72,32 @@ public class MainActivity extends AppCompatActivity {
         return toolbar;
     }
 
+    private ShareLinkContent setUpSharingModel(String linkUrl,
+                                               String title,
+                                               String imageUrl,
+                                               String description) {
+        return new ShareLinkContent.Builder()
+                .setContentUrl(Uri.parse(linkUrl))
+                .setContentTitle(title)
+                .setImageUrl(Uri.parse(imageUrl))
+                .setContentDescription(description)
+                .build();
+    }
+
+    private void setUpShareButton() {
+        shareButton = (ShareButton)findViewById(R.id.share_btn);
+        shareButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                shareButton.setShareContent(setUpSharingModel(
+                        "http://estcequecestbientotleweekend.fr/",
+                        "Week-End",
+                        "",
+                        "Finis les week-end de 4 jours. :("));
+                shareButton.performClick();
+            }
+        });
+    }
+
     private ActionBarDrawerToggle setUpDrawerToggle(DrawerLayout layout, Toolbar toolbar) {
         return new ActionBarDrawerToggle(this, layout, toolbar, drawerOpenId, drawerCloseId);
     }
@@ -78,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
         mDrawerToggle.syncState();
@@ -98,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, SettingsActivity.class));
         }
         return super.onOptionsItemSelected(item);
-
     }
 
     @Override
