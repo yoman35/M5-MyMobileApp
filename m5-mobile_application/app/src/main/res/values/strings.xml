@@ -44,6 +44,7 @@
     <string name="menu_item_forward">Click to continue</string>
     <string name="menu_item_category">Categories</string>
     <string name="menu_item_favorites">Favorites</string>
+    <string name="share">Share</string>
 
 
 </resources>

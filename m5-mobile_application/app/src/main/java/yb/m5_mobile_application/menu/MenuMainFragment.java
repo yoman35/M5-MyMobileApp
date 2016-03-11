@@ -1,21 +1,28 @@
 package yb.m5_mobile_application.menu;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import yb.m5_mobile_application.R;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
 public class MenuMainFragment extends Fragment {
@@ -28,6 +35,9 @@ public class MenuMainFragment extends Fragment {
             favoriteIconId = R.drawable.ic_favorite_border_black_36dp,
             favoriteTitleId = R.string.menu_item_favorites;
 
+    private CallbackManager callbackManager;
+    private LoginButton authButton;
+
     public MenuMainFragment() {
     }
 
@@ -37,9 +47,26 @@ public class MenuMainFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_menu_main, container, false);
         setUpRVHead(v);
         setUpRVBody(v);
-        LoginButton authButton = (LoginButton) v.findViewById(R.id.login_button);
+        authButton = (LoginButton) v.findViewById(R.id.login_button);
         authButton.setFragment(this);
-        authButton.setReadPermissions("user_friends");
+        authButton.setPublishPermissions(Arrays.asList("publish_actions"));
+        callbackManager = CallbackManager.Factory.create();
+        authButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                Log.v("INFO", "Login success");
+            }
+
+            @Override
+            public void onCancel() {
+                Log.v("INFO", "Login cancel");
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                Log.v("INFO", "Login error", exception);
+            }
+        });
         return v;
     }
 
