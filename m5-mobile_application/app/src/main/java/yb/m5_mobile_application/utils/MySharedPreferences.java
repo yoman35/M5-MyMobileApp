@@ -4,7 +4,9 @@ import android.content.SharedPreferences;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
@@ -84,7 +86,7 @@ public class MySharedPreferences {
         return articles;
     }
 
-    public void setBookedArticles(Set<Article> bookedArticles) {
+    public void setBookedArticles(List<Article> bookedArticles) {
         Set<String> jsonArticles = new HashSet<>();
         for (Article article : bookedArticles)
             jsonArticles.add(new Gson().toJson(article));
@@ -139,7 +141,7 @@ public class MySharedPreferences {
         else
             setCountry(MyApp.getInstance().getString(R.string.england));
         setCategories(new HashSet<Category>());
-        setBookedArticles(new HashSet<Article>());
+        setBookedArticles(new ArrayList<Article>());
     }
 
 }
