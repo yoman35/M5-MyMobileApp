@@ -33,15 +33,22 @@
         <FrameLayout
             android:id="@+id/main_content"
             android:layout_width="match_parent"
-android:layout_height="match_parent"            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+<<<<<<< HEAD
+            android:layout_height="match_parent" >
+
             <com.facebook.share.widget.ShareButton
                 android:id="@+id/share_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/share" />
         </FrameLayout>
+    </LinearLayout>
+=======
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     </android.support.design.widget.CoordinatorLayout>
+>>>>>>> feature/main_content
 
     <FrameLayout
         android:id="@+id/navigation_drawer"

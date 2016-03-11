@@ -23,4 +23,11 @@
     <string name="clear_data_info_dialog_cancel">ANNULER</string>
     <string name="england">ANG</string>
     <string name="france">FR</string>
+    <string name="article_item_image_description">Image de l\'article</string>
+    <string name="clear_data_done">Vos préférences ont été effacés</string>
+    <string name="country_choice_dialog_ok" translatable="false">OK</string>
+    <string name="menu_item_category">Catégories</string>
+    <string name="menu_item_favorites">Favoris</string>
+    <string name="menu_item_forward">Ouvrez le menu</string>
+    <string name="title_activity_clear_data_information">Informations</string>
 </resources>

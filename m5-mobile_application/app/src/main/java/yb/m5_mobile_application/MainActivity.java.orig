@@ -54,8 +54,11 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = setUpToolbar();
         setUpNavigationDrawer(toolbar);
+<<<<<<< HEAD
+        setUpShareButton();
+=======
         showToolbarLogo();
-setUpShareButton();
+
         setContent();
     }
 
@@ -64,6 +67,7 @@ setUpShareButton();
                 .beginTransaction()
                 .replace(contentId, new ArticlesFragment())
                 .commit();
+>>>>>>> feature/main_content
     }
 
     private void checkFirstTime() {
@@ -121,7 +125,7 @@ setUpShareButton();
                 .beginTransaction()
                 .replace(navigationDrawerId, new MenuFragment())
                 .commit();
-        drawerLayout.setDrawerListener(mDrawerToggle);
+        drawerLayout.addDrawerListener(mDrawerToggle);
     }
 
     @Override

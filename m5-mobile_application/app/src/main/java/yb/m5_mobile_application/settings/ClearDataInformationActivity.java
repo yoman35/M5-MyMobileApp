@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-
 import yb.m5_mobile_application.R;
 
 public class ClearDataInformationActivity extends AppCompatActivity {

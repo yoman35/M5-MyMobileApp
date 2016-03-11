@@ -6,12 +6,10 @@
     android:orientation="vertical"
     tools:context=".menu.MenuFragment">
 
-    <View
+    <View xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="24dp"
-        android:background="?attr/colorPrimaryDark" />
-
-    <include layout="@layout/menu_toolbar" />
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorDivider" />
 
     <FrameLayout
         android:id="@+id/fragment_menu_container"
