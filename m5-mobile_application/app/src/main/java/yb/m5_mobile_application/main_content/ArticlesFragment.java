@@ -63,6 +63,7 @@ public class ArticlesFragment extends Fragment implements View.OnTouchListener {
     }
 
     private void requestArticles() {
+
         for (int i = 0; i < 10; ++i) {
             mArticles.add(getDefaultArticle());
         }

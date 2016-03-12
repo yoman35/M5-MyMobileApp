@@ -23,6 +23,7 @@ import java.util.List;
 
 import yb.m5_mobile_application.R;
 import yb.m5_mobile_application.models.Article;
+import yb.m5_mobile_application.utils.MyApp;
 
 @SuppressLint("ViewConstructor")
 public class ArticlePreviewLayout extends RelativeLayout implements View.OnTouchListener {

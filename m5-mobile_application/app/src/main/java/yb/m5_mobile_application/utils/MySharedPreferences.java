@@ -22,7 +22,6 @@ public class MySharedPreferences {
     private SharedPreferences sharedPreferences;
 
     public MySharedPreferences() {
-
     }
 
     public User getUser() {
@@ -47,6 +46,7 @@ public class MySharedPreferences {
                 .edit()
                 .putBoolean(Key.FIRST_LAUNCH.getName(), false)
                 .apply();
+        setUser(null);
     }
 
     public String getCountry() {
@@ -140,6 +140,7 @@ public class MySharedPreferences {
             setCountry(MyApp.getInstance().getString(R.string.france));
         else
             setCountry(MyApp.getInstance().getString(R.string.england));
+        setUser(null);
         setCategories(new HashSet<Category>());
         setBookedArticles(new ArrayList<Article>());
     }
